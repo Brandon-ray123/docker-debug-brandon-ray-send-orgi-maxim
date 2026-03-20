@@ -9,11 +9,13 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8000:8888"
+      - "8000:8000"
     environment:
       DATABASE_URL: postgres://todo_user:todo_password@database:5432/todo_db
 
   frontend:
     build: ./frontend
+    ports:
+      - "5050:80"
     environment:
-      BACKEND_URL: http://api:8000
+      BACKEND_URL: http://backend:8000
